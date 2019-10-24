@@ -1,16 +1,16 @@
 package com.stu.demo.controller;
 
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@Api(value = "首页", description = "首页相关的api", tags = "首页")
-@RequestMapping(value = "index")
-public class IndexController {
+//@Api(value = "首页1", description = "首页相关的api", tags = "首页")
+@RequestMapping(value = "index1")
+public class Index1Controller {
 
     @Value("${config.site.siteName}")
     private String siteName;
