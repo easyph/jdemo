@@ -16,7 +16,13 @@ public class IndexController {
     private String siteName;
 
     @Value("${config.site.version}")
-    private float version;
+    private Float version;
+
+    @RequestMapping(value = "", method = {RequestMethod.GET})
+    @ApiOperation(value = "首页信息", notes = "首页内容")
+    public String indexDefault(){
+        return this.index();
+    }
 
     @RequestMapping(value = "/index", method = {RequestMethod.GET})
     @ApiOperation(value = "首页信息", notes = "首页内容")
