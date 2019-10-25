@@ -1,4 +1,4 @@
-package com.stu.demo.controller;
+package com.stu.demo.controller.index;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@Api(value = "首页", description = "首页相关的api", tags = "首页")
+@Api(value = "首页", description = "首页相关的api")
 @RequestMapping(value = "index")
 public class IndexController {
 

@@ -1,11 +1,8 @@
-package com.stu.demo.controller;
+package com.stu.demo.controller.user;
 
 import com.stu.demo.dao.model.User;
 import com.stu.demo.dao.repository.UserMapper;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +14,7 @@ public class UserController {
 
     @Autowired
     private UserMapper userMapper;
+
 
     @ApiOperation(value = "根据id查询用户信息", notes = "查询数据库中某个用户信息")
     @RequestMapping(value = "/userinfo/{id}", method = {RequestMethod.GET})
@@ -53,4 +51,6 @@ public class UserController {
     public String addUser(@RequestBody User user){
         return user.getUsername();
     }
+
+
 }
