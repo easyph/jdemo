@@ -27,7 +27,7 @@ public class UserService {
         User user = userMapper.selectByPrimaryKey(userId);
         List<UserInfoVO> userInfo = new ArrayList<>();
 //        userInfo.add(user);
-//        BeanUtils.copyProperties(user, userInfo);
+        BeanUtils.copyProperties(user, userInfo);
         return userInfo;
 
     }
