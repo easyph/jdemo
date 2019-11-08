@@ -1,7 +1,6 @@
 package com.stu.demo.controller.test;
 
-import com.stu.demo.dao.TestVO;
-import com.stu.demo.dao.model.User;
+import com.stu.demo.common.beans.params.TestVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

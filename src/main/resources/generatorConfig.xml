@@ -55,9 +55,9 @@
 
         <!--<table tableName="user" />-->
 
-        <!--<table tableName="user">-->
-            <!--<property name="useActualColumnNames" value="false"/>-->
-        <!--</table>-->
+        <table tableName="user">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
 
     </context>
 </generatorConfiguration>

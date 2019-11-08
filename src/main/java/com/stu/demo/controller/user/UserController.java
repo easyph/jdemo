@@ -1,14 +1,15 @@
 package com.stu.demo.controller.user;
 
-import com.stu.demo.dao.TestVO;
+import com.stu.demo.common.beans.params.UserInfoVO;
 import com.stu.demo.dao.model.User;
 import com.stu.demo.dao.repository.UserMapper;
+import com.stu.demo.service.UserService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.ws.Service;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,53 +24,46 @@ public class UserController {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private UserService userService;
 
 
-
-
-    @ApiOperation(value = "id查询用户信息")
+    @ApiOperation(value = "id查询用户名字")
     @ApiImplicitParam(name = "id", required = true, value = "用户ID", paramType = "path", dataType = "int")
-    @RequestMapping(value = "/userinfo/{id}", method = {RequestMethod.GET})
-    public String userInfo(@PathVariable("id") int id){
-        User user = userMapper.selectByPrimaryKey(id);
-        return user.getUsername();
+    @RequestMapping(value = "/username/{id}", method = {RequestMethod.GET})
+    public String getUserNameByID(@PathVariable("id") int id){
+        return userService.getUserNmae(id);
     }
-
 
 
     @ApiOperation(value = "id查询用户信息")
     @ApiImplicitParam(name = "id", required = true, value = "用户ID", paramType = "query", dataType = "int")
     @RequestMapping(value = "/userinfo", method = { RequestMethod.GET})
-    public List<User> userInfo2(@RequestParam(value = "id") int id){
-        User user = userMapper.selectByPrimaryKey(id);
-        List<User> userList = new ArrayList<>();
-        userList.add(user);
-        return userList;
+    public List<UserInfoVO> userInfo2(@RequestParam(value = "id") int id){
+        return userService.getUserInfo(id);
     }
 
 
     @ApiOperation(value = "新增用户")
-    @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, paramType = "body", dataType = "User")
+    @ApiImplicitParam(name = "userInfo", value = "用户详细实体user", required = true, paramType = "body", dataType = "UserInfoVO")
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addUser(@RequestBody User user){
-//        User user = userMapper.insert(user);
-        return user.getUsername();
+    public int addUser(@RequestBody UserInfoVO userInfo){
+        return userService.addUser(userInfo);
     }
 
-    @RequestMapping(value = "update", method = RequestMethod.GET)
-    public boolean updateUser(){
-        User user = new User();
-        user.setId(1);
-        user.setRealname("大大师兄");
-        user.setUsername("大大da师兄111");
-        userMapper.updateByPrimaryKeySelective(user);
-        return false;
+    @ApiOperation(value = "更新用户信息")
+    @ApiImplicitParam(name = "userInfo", value = "用户详细实体user", required = true, paramType = "body", dataType = "UserInfoVO")
+    @RequestMapping(value = "update", method = RequestMethod.POST)
+    public int updateUser(@RequestBody UserInfoVO userInfo){
+        return userService.updateUserInfo(userInfo);
     }
+
+    @ApiOperation(value = "删除用户")
     @RequestMapping(value = "del", method = RequestMethod.GET)
-    public boolean delUser(){
+    public int delUser(int id){
 
-        userMapper.deleteByPrimaryKey(1);
-        return false;
+//        userMapper.deleteByPrimaryKey(1);
+        return userService.delUser(id);
     }
 
 

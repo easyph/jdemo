@@ -1,4 +1,4 @@
-package com.stu.demo.dao;
+package com.stu.demo.common.beans.params;
 
 
 public class TestVO {

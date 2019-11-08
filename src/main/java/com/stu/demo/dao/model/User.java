@@ -1,13 +1,25 @@
 package com.stu.demo.dao.model;
 
+import java.util.Date;
+
 public class User {
     private Integer id;
 
-    private String username;
+    private String userName;
 
     private String password;
 
-    private String realname;
+    private String realName;
+
+    private Byte isDel;
+
+    private Byte age;
+
+    private String address;
+
+    private Date createTime;
+
+    private Date lastModifyTime;
 
     public Integer getId() {
         return id;
@@ -17,12 +29,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
     }
 
     public String getPassword() {
@@ -33,11 +45,51 @@ public class User {
         this.password = password == null ? null : password.trim();
     }
 
-    public String getRealname() {
-        return realname;
+    public String getRealName() {
+        return realName;
     }
 
-    public void setRealname(String realname) {
-        this.realname = realname == null ? null : realname.trim();
+    public void setRealName(String realName) {
+        this.realName = realName == null ? null : realName.trim();
+    }
+
+    public Byte getIsDel() {
+        return isDel;
+    }
+
+    public void setIsDel(Byte isDel) {
+        this.isDel = isDel;
+    }
+
+    public Byte getAge() {
+        return age;
+    }
+
+    public void setAge(Byte age) {
+        this.age = age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getLastModifyTime() {
+        return lastModifyTime;
+    }
+
+    public void setLastModifyTime(Date lastModifyTime) {
+        this.lastModifyTime = lastModifyTime;
     }
 }
