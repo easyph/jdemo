@@ -39,7 +39,7 @@ public class UserController {
     @ApiOperation(value = "id查询用户信息")
     @ApiImplicitParam(name = "id", required = true, value = "用户ID", paramType = "query", dataType = "int")
     @RequestMapping(value = "/userinfo", method = { RequestMethod.GET})
-    public List<UserInfoVO> userInfo2(@RequestParam(value = "id") int id){
+    public UserInfoVO userInfo2(@RequestParam(value = "id") int id){
         return userService.getUserInfo(id);
     }
 
