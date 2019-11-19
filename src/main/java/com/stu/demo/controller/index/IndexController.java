@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Api(value = "首页", description = "首页相关的api")
-@RequestMapping(value = "index")
+@RequestMapping(value = "api/index")
 public class IndexController {
 
     @Value("${config.site.siteName}")
